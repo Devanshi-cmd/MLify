@@ -5,8 +5,8 @@
 #define width 1000
 
 //SDL initialization
-SDL_Window* window = nullptr;
-SDL_Renderer* renderer = nullptr;
+SDL_Window* window = NULL;
+SDL_Renderer* renderer = NULL;
 
 void plot(int centerX,int centerY,int x, int y);
 void graphLines();
@@ -44,7 +44,21 @@ int main()
         plot(centerX,centerY,x,y);
         printf("Plotting Step: %d\n",step);
     }
-    SDL_Delay(10000);
+
+    SDL_Event e;
+    int quit = 0;
+    while (!quit) {
+        while (SDL_PollEvent(&e)) {
+            if (e.type == SDL_QUIT) {
+                quit = 1;
+            }
+        }
+    }
+
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    return 0;
 }
 
 
