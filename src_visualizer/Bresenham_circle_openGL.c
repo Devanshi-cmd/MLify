@@ -54,8 +54,8 @@ int main()
     int d= 3- 2*radius;
 
     //for offset (center of window)
-    int centerX = 500;
-    int centerY = 500;
+    int centerX = 600;
+    int centerY = 600;
 
     int step =1;
 
@@ -67,7 +67,7 @@ int main()
         if (d<0) d=d+4*x+6;
         else y--,d=d+4*(x-y)+10;
         plot(centerX,centerY,x,y);
-        printf("Plotting Step: %d\n",step);
+        // printf("Plotting Step: %d\n",step);
     }
     glEnd(); //end drawing batch
 
@@ -108,5 +108,5 @@ void graphLines()
     for (int y=0;y<height;y++) glVertex2i(width/2,y);     //Vertical line
     glEnd();
 
-    printf("Drawn Lines!\n");
+    // printf("Drawn Lines!\n");
 }
